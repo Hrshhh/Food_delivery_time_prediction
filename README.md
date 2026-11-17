@@ -119,7 +119,6 @@ errors are on orders with missing information (courier age, rating or traffic).
 | `Food_Delivery_Time_Prediction.ipynb` | Notebook: data cleaning, EDA, all models, tuning |
 | `train.py` | Script that reproduces every result above in one run |
 | `requirements.txt` | Library versions |
-| `standard_scaler.pkl` | Fitted scaler from the notebook |
 
 ## How to run
 
