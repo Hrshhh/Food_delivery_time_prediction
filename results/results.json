@@ -1,0 +1,727 @@
+{
+  "cleaning": {
+    "rows_raw": 45593,
+    "rows_rating_gt5": 53,
+    "rows_distance_ge_100km_dropped": 431,
+    "rows_clean": 45162,
+    "missing_before_imputation": {
+      "Delivery_person_Age": 1611,
+      "Delivery_person_Ratings": 1660,
+      "distance_km": 0,
+      "order_hour": 1456,
+      "Weatherconditions": 467,
+      "Road_traffic_density": 454,
+      "Vehicle_condition": 0,
+      "Type_of_order": 0,
+      "Type_of_vehicle": 0,
+      "multiple_deliveries": 985,
+      "Festival": 228,
+      "City": 1183
+    }
+  },
+  "imputation_values": {
+    "Delivery_person_Age": 30.0,
+    "Delivery_person_Ratings": 4.7,
+    "multiple_deliveries": 1.0,
+    "order_hour": 19.0,
+    "Weatherconditions": "Fog",
+    "Road_traffic_density": "Low",
+    "Festival": "No",
+    "City": "Metropolitian"
+  },
+  "split": {
+    "train_rows": 36129,
+    "test_rows": 9033,
+    "n_features_encoded": 21,
+    "train_target_mean": 26.278723463145948,
+    "test_target_mean": 26.375290601129194
+  },
+  "tuning": {
+    "Random forest": {
+      "cv_r2": 0.8227417798660003,
+      "best_params": {
+        "n_estimators": 400,
+        "min_samples_split": 10,
+        "min_samples_leaf": 1,
+        "max_features": 0.5,
+        "max_depth": 20
+      }
+    },
+    "XGBoost": {
+      "cv_r2": 0.8225554823875427,
+      "best_params": {
+        "subsample": 0.9,
+        "reg_lambda": 2,
+        "reg_alpha": 0,
+        "n_estimators": 500,
+        "max_depth": 8,
+        "learning_rate": 0.01,
+        "colsample_bytree": 1.0
+      }
+    }
+  },
+  "test": {
+    "Mean baseline": {
+      "MAE": 7.64071761048795,
+      "RMSE": 9.466950906770748,
+      "R2": -0.00010405996144902119,
+      "train": {
+        "MAE": 7.581015020692016,
+        "RMSE": 9.36270539335844,
+        "R2": 0.0
+      },
+      "MAE_CI": [
+        7.524512196303896,
+        7.746914381645041
+      ],
+      "RMSE_CI": [
+        9.341223035570414,
+        9.586780585609972
+      ]
+    },
+    "Linear regression": {
+      "MAE": 4.930198902777585,
+      "RMSE": 6.212510956097219,
+      "R2": 0.569315466760959,
+      "train": {
+        "MAE": 4.831042361134591,
+        "RMSE": 6.043532429197743,
+        "R2": 0.5833426978406997
+      },
+      "MAE_CI": [
+        4.849000257680058,
+        5.007664231715544
+      ],
+      "RMSE_CI": [
+        6.123992544296513,
+        6.309082710940261
+      ]
+    },
+    "Decision tree": {
+      "MAE": 4.184324144802392,
+      "RMSE": 5.491587519863505,
+      "R2": 0.663472345116529,
+      "train": {
+        "MAE": 0.0,
+        "RMSE": 0.0,
+        "R2": 1.0
+      },
+      "MAE_CI": [
+        4.108682054688365,
+        4.254179121000775
+      ],
+      "RMSE_CI": [
+        5.3972364801971064,
+        5.586758731955766
+      ]
+    },
+    "Random forest": {
+      "MAE": 3.195132292704528,
+      "RMSE": 4.028700960508738,
+      "R2": 0.818884756316947,
+      "train": {
+        "MAE": 1.1806022862520413,
+        "RMSE": 1.5058981863378045,
+        "R2": 0.974130472037669
+      },
+      "MAE_CI": [
+        3.1429567419461972,
+        3.2463773663234803
+      ],
+      "RMSE_CI": [
+        3.9588946908193914,
+        4.099749873219084
+      ]
+    },
+    "XGBoost": {
+      "MAE": 3.1760447025299072,
+      "RMSE": 3.9989541593892377,
+      "R2": 0.8215494751930237,
+      "train": {
+        "MAE": 2.7905542850494385,
+        "RMSE": 3.5018708814589603,
+        "R2": 0.8601064682006836
+      },
+      "MAE_CI": [
+        3.127506898484937,
+        3.2244383207180958
+      ],
+      "RMSE_CI": [
+        3.9244038324428443,
+        4.070254816138791
+      ]
+    },
+    "Random forest (tuned)": {
+      "MAE": 3.113845850258583,
+      "RMSE": 3.906264801714879,
+      "R2": 0.8297260146574709,
+      "train": {
+        "MAE": 2.2012707287870663,
+        "RMSE": 2.7685670247400376,
+        "R2": 0.9125605599930514
+      },
+      "MAE_CI": [
+        3.0632504902195388,
+        3.165343641888657
+      ],
+      "RMSE_CI": [
+        3.8399695610358653,
+        3.9735325530751364
+      ]
+    },
+    "XGBoost (tuned)": {
+      "MAE": 3.115752696990967,
+      "RMSE": 3.912604328751096,
+      "R2": 0.8291728496551514,
+      "train": {
+        "MAE": 2.939326286315918,
+        "RMSE": 3.6801665494382187,
+        "R2": 0.8454986810684204
+      },
+      "MAE_CI": [
+        3.066427058116761,
+        3.1666901691957894
+      ],
+      "RMSE_CI": [
+        3.8463539283254096,
+        3.982077658179123
+      ]
+    }
+  },
+  "final_model": "Random forest (tuned)",
+  "paired_mae_diff_xgb_minus_rf": {
+    "mean": 0.001706056875494534,
+    "CI": [
+      -0.018680789864220792,
+      0.02285209364693975
+    ]
+  },
+  "subgroups": {
+    "Road_traffic_density": [
+      {
+        "Road_traffic_density": "High",
+        "n": 862,
+        "MAE": 3.3324943310021755,
+        "bias": 0.009481914865895377
+      },
+      {
+        "Road_traffic_density": "Jam",
+        "n": 2879,
+        "MAE": 3.440812960946245,
+        "bias": 0.03433496479830637
+      },
+      {
+        "Road_traffic_density": "Low",
+        "n": 3083,
+        "MAE": 2.6637834961895406,
+        "bias": 0.1413477210050464
+      },
+      {
+        "Road_traffic_density": "Medium",
+        "n": 2114,
+        "MAE": 3.116036446128038,
+        "bias": 0.09700664113004408
+      },
+      {
+        "Road_traffic_density": "missing",
+        "n": 95,
+        "MAE": 5.778035490848807,
+        "bias": 0.6021393274077085
+      }
+    ],
+    "Festival": [
+      {
+        "Festival": "No",
+        "n": 8802,
+        "MAE": 3.1127014530583272,
+        "bias": 0.10349838956514215
+      },
+      {
+        "Festival": "Yes",
+        "n": 187,
+        "MAE": 2.7688413566733425,
+        "bias": 0.5637733836415023
+      },
+      {
+        "Festival": "missing",
+        "n": 44,
+        "MAE": 4.809046406101476,
+        "bias": -4.803281229850288
+      }
+    ],
+    "City": [
+      {
+        "City": "Metropolitian",
+        "n": 6771,
+        "MAE": 3.107101339143157,
+        "bias": 0.20278067246237733
+      },
+      {
+        "City": "Semi-Urban",
+        "n": 32,
+        "MAE": 3.0977914049543616,
+        "bias": 2.725136229554451
+      },
+      {
+        "City": "Urban",
+        "n": 2006,
+        "MAE": 3.1154052633005382,
+        "bias": -0.19384527131533502
+      },
+      {
+        "City": "missing",
+        "n": 224,
+        "MAE": 3.3060451558394837,
+        "bias": -1.1888598426339638
+      }
+    ],
+    "Weatherconditions": [
+      {
+        "Weatherconditions": "Cloudy",
+        "n": 1466,
+        "MAE": 2.837363808310368,
+        "bias": 0.3448231763018498
+      },
+      {
+        "Weatherconditions": "Fog",
+        "n": 1516,
+        "MAE": 2.620777103223323,
+        "bias": 0.0932359306280028
+      },
+      {
+        "Weatherconditions": "Sandstorms",
+        "n": 1457,
+        "MAE": 3.4198019872834045,
+        "bias": -0.08108193249967538
+      },
+      {
+        "Weatherconditions": "Stormy",
+        "n": 1540,
+        "MAE": 3.2614829512363497,
+        "bias": -0.11503409720227353
+      },
+      {
+        "Weatherconditions": "Sunny",
+        "n": 1457,
+        "MAE": 3.0024732755039567,
+        "bias": 0.2837376461910311
+      },
+      {
+        "Weatherconditions": "Windy",
+        "n": 1501,
+        "MAE": 3.3719185547436497,
+        "bias": -0.008333288568267337
+      },
+      {
+        "Weatherconditions": "missing",
+        "n": 96,
+        "MAE": 5.765703963133732,
+        "bias": 0.5480107007659446
+      }
+    ],
+    "Type_of_vehicle": [
+      {
+        "Type_of_vehicle": "bicycle",
+        "n": 8,
+        "MAE": 6.131576740525981,
+        "bias": -1.8905448646399412
+      },
+      {
+        "Type_of_vehicle": "electric_scooter",
+        "n": 706,
+        "MAE": 2.967298087411119,
+        "bias": 0.04302848189275628
+      },
+      {
+        "Type_of_vehicle": "motorcycle",
+        "n": 5297,
+        "MAE": 3.198765738899432,
+        "bias": 0.05888469998539456
+      },
+      {
+        "Type_of_vehicle": "scooter",
+        "n": 3022,
+        "MAE": 2.99124499761715,
+        "bias": 0.15814297434087624
+      }
+    ],
+    "multiple_deliveries": [
+      {
+        "multiple_deliveries": "0.0",
+        "n": 2750,
+        "MAE": 3.0995738252995526,
+        "bias": -0.1023886439847159
+      },
+      {
+        "multiple_deliveries": "1.0",
+        "n": 5598,
+        "MAE": 3.153943123572962,
+        "bias": 0.20255620230146482
+      },
+      {
+        "multiple_deliveries": "2.0",
+        "n": 387,
+        "MAE": 2.849665010883882,
+        "bias": 0.2301795098088703
+      },
+      {
+        "multiple_deliveries": "3.0",
+        "n": 70,
+        "MAE": 2.286415643232961,
+        "bias": 0.9700122714919559
+      },
+      {
+        "multiple_deliveries": "missing",
+        "n": 228,
+        "MAE": 3.0039407272464715,
+        "bias": -0.8958206370446126
+      }
+    ]
+  },
+  "error_by_true_quintile": [
+    {
+      "y": "(9.999, 18.0]",
+      "n": 2103,
+      "MAE": 3.1764696275006794,
+      "bias": -2.3170507171731805
+    },
+    {
+      "y": "(18.0, 23.0]",
+      "n": 1662,
+      "MAE": 2.58011193593959,
+      "bias": -0.8129176795306853
+    },
+    {
+      "y": "(23.0, 28.0]",
+      "n": 1946,
+      "MAE": 2.724578114808948,
+      "bias": 0.9063182798870991
+    },
+    {
+      "y": "(28.0, 34.0]",
+      "n": 1532,
+      "MAE": 3.365709305438629,
+      "bias": 0.9028957310618536
+    },
+    {
+      "y": "(34.0, 54.0]",
+      "n": 1790,
+      "MAE": 3.743470521715117,
+      "bias": 2.1686979232000407
+    }
+  ],
+  "share_abs_err_gt_10min": 0.012066865936012399,
+  "worst_errors": [
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 6.12,
+      "order_hour": null,
+      "Weatherconditions": "Sunny",
+      "Road_traffic_density": "High",
+      "Vehicle_condition": 0,
+      "Type_of_order": "Snack",
+      "Type_of_vehicle": "motorcycle",
+      "multiple_deliveries": 1.0,
+      "Festival": "No",
+      "City": "Metropolitian",
+      "y": 53,
+      "pred": 30.19,
+      "abs_err": 22.81,
+      "resid": 22.81
+    },
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 8.81,
+      "order_hour": null,
+      "Weatherconditions": "Sunny",
+      "Road_traffic_density": "Jam",
+      "Vehicle_condition": 0,
+      "Type_of_order": "Drinks",
+      "Type_of_vehicle": "motorcycle",
+      "multiple_deliveries": 1.0,
+      "Festival": "No",
+      "City": "Metropolitian",
+      "y": 50,
+      "pred": 28.05,
+      "abs_err": 21.95,
+      "resid": 21.95
+    },
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 19.47,
+      "order_hour": null,
+      "Weatherconditions": "Windy",
+      "Road_traffic_density": "Jam",
+      "Vehicle_condition": 0,
+      "Type_of_order": "Snack",
+      "Type_of_vehicle": "motorcycle",
+      "multiple_deliveries": 1.0,
+      "Festival": "No",
+      "City": "Urban",
+      "y": 53,
+      "pred": 32.14,
+      "abs_err": 20.86,
+      "resid": 20.86
+    },
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 12.26,
+      "order_hour": null,
+      "Weatherconditions": "Sandstorms",
+      "Road_traffic_density": "Jam",
+      "Vehicle_condition": 2,
+      "Type_of_order": "Snack",
+      "Type_of_vehicle": "electric_scooter",
+      "multiple_deliveries": 0.0,
+      "Festival": "No",
+      "City": "Metropolitian",
+      "y": 44,
+      "pred": 25.25,
+      "abs_err": 18.75,
+      "resid": 18.75
+    },
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 10.87,
+      "order_hour": null,
+      "Weatherconditions": null,
+      "Road_traffic_density": null,
+      "Vehicle_condition": 3,
+      "Type_of_order": "Meal",
+      "Type_of_vehicle": "scooter",
+      "multiple_deliveries": 1.0,
+      "Festival": "No",
+      "City": "Metropolitian",
+      "y": 15,
+      "pred": 32.55,
+      "abs_err": 17.55,
+      "resid": -17.55
+    },
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 6.29,
+      "order_hour": null,
+      "Weatherconditions": null,
+      "Road_traffic_density": null,
+      "Vehicle_condition": 3,
+      "Type_of_order": "Meal",
+      "Type_of_vehicle": "bicycle",
+      "multiple_deliveries": 1.0,
+      "Festival": "No",
+      "City": "Urban",
+      "y": 11,
+      "pred": 28.23,
+      "abs_err": 17.23,
+      "resid": -17.23
+    },
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 6.13,
+      "order_hour": null,
+      "Weatherconditions": "Sandstorms",
+      "Road_traffic_density": "High",
+      "Vehicle_condition": 1,
+      "Type_of_order": "Meal",
+      "Type_of_vehicle": "scooter",
+      "multiple_deliveries": null,
+      "Festival": "No",
+      "City": "Metropolitian",
+      "y": 10,
+      "pred": 26.82,
+      "abs_err": 16.82,
+      "resid": -16.82
+    },
+    {
+      "Delivery_person_Age": null,
+      "Delivery_person_Ratings": null,
+      "distance_km": 10.59,
+      "order_hour": null,
+      "Weatherconditions": "Sunny",
+      "Road_traffic_density": "Low",
+      "Vehicle_condition": 1,
+      "Type_of_order": "Drinks",
+      "Type_of_vehicle": "motorcycle",
+      "multiple_deliveries": 1.0,
+      "Festival": "No",
+      "City": "Metropolitian",
+      "y": 38,
+      "pred": 21.6,
+      "abs_err": 16.4,
+      "resid": 16.4
+    }
+  ],
+  "conformal": {
+    "n_fit": 28903,
+    "n_cal": 7226,
+    "80%": {
+      "halfwidth_min": 4.829965627867992,
+      "coverage": 0.7974094985054799
+    },
+    "90%": {
+      "halfwidth_min": 6.222931610577106,
+      "coverage": 0.8987047492527399
+    },
+    "95%": {
+      "halfwidth_min": 7.4546526224390774,
+      "coverage": 0.9489649064541127
+    },
+    "by_traffic": [
+      {
+        "traffic": "High",
+        "n_test": 862,
+        "n_cal": 715,
+        "global_coverage": 0.8689095127610209,
+        "mondrian_halfwidth": 6.86711313811962,
+        "mondrian_coverage": 0.8967517401392111
+      },
+      {
+        "traffic": "Jam",
+        "n_test": 2879,
+        "n_cal": 2244,
+        "global_coverage": 0.859326154914901,
+        "mondrian_halfwidth": 6.999753512096799,
+        "mondrian_coverage": 0.908996179228899
+      },
+      {
+        "traffic": "Low",
+        "n_test": 3083,
+        "n_cal": 2453,
+        "global_coverage": 0.9519948102497567,
+        "mondrian_halfwidth": 5.171408641195413,
+        "mondrian_coverage": 0.90074602659747
+      },
+      {
+        "traffic": "Medium",
+        "n_test": 2114,
+        "n_cal": 1741,
+        "global_coverage": 0.8982970671712394,
+        "mondrian_halfwidth": 6.190925709953962,
+        "mondrian_coverage": 0.8949858088930936
+      },
+      {
+        "traffic": "missing",
+        "n_test": 95,
+        "n_cal": 73,
+        "global_coverage": 0.6421052631578947,
+        "mondrian_halfwidth": 12.587368548253767,
+        "mondrian_coverage": 0.8842105263157894
+      }
+    ],
+    "mondrian_overall": {
+      "coverage": 0.9014723790545777,
+      "mean_halfwidth": 6.232548620626375
+    },
+    "global_coverage_by_Festival": {
+      "No": {
+        "n": 8802,
+        "coverage": 0.8991138377641446
+      },
+      "Yes": {
+        "n": 187,
+        "coverage": 0.9144385026737968
+      },
+      "missing": {
+        "n": 44,
+        "coverage": 0.75
+      }
+    },
+    "global_coverage_by_City": {
+      "Metropolitian": {
+        "n": 6771,
+        "coverage": 0.8983901934721606
+      },
+      "Semi-Urban": {
+        "n": 32,
+        "coverage": 0.875
+      },
+      "Urban": {
+        "n": 2006,
+        "coverage": 0.9017946161515453
+      },
+      "missing": {
+        "n": 224,
+        "coverage": 0.8839285714285714
+      }
+    }
+  },
+  "ablation": [
+    {
+      "dropped": "courier (age, rating)",
+      "MAE": 4.502319434057955,
+      "RMSE": 5.753900458152217,
+      "R2": 0.6305551396605515,
+      "delta_RMSE": 1.8476356564373382
+    },
+    {
+      "dropped": "weather",
+      "MAE": 4.384984671023364,
+      "RMSE": 5.574150733453077,
+      "R2": 0.6532772349698788,
+      "delta_RMSE": 1.6678859317381982
+    },
+    {
+      "dropped": "distance",
+      "MAE": 3.8308390565286166,
+      "RMSE": 4.92369456539124,
+      "R2": 0.7294751600162697,
+      "delta_RMSE": 1.0174297636763607
+    },
+    {
+      "dropped": "vehicle (type, condition)",
+      "MAE": 3.700679826071155,
+      "RMSE": 4.737410552525302,
+      "R2": 0.7495581019522466,
+      "delta_RMSE": 0.8311457508104225
+    },
+    {
+      "dropped": "traffic",
+      "MAE": 3.2634755924278323,
+      "RMSE": 4.175147418092919,
+      "R2": 0.8054780703567115,
+      "delta_RMSE": 0.26888261637804023
+    },
+    {
+      "dropped": "multiple deliveries",
+      "MAE": 3.2021077103677285,
+      "RMSE": 4.009969464832586,
+      "R2": 0.8205650361706022,
+      "delta_RMSE": 0.10370466311770654
+    },
+    {
+      "dropped": "festival",
+      "MAE": 3.155181339331471,
+      "RMSE": 3.9549557922200433,
+      "R2": 0.8254546806557171,
+      "delta_RMSE": 0.04869099050516423
+    },
+    {
+      "dropped": "city type",
+      "MAE": 3.123573957914818,
+      "RMSE": 3.9196076417840255,
+      "R2": 0.828560799874748,
+      "delta_RMSE": 0.013342840069146433
+    },
+    {
+      "dropped": "order hour",
+      "MAE": 3.1173268260402733,
+      "RMSE": 3.91652969495066,
+      "R2": 0.8288299459759145,
+      "delta_RMSE": 0.010264893235780725
+    },
+    {
+      "dropped": "order type",
+      "MAE": 3.109128931581824,
+      "RMSE": 3.896731905260245,
+      "R2": 0.8305560780093904,
+      "delta_RMSE": -0.009532896454634177
+    }
+  ],
+  "runtime_sec": 330.9
+}
