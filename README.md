@@ -1,14 +1,9 @@
 # Food Delivery Time Prediction
 
-ES 678 course project, Harsh Dubey (26210054), IIT Gandhinagar.
-
 This project predicts **how many minutes a food delivery will take**, using only information that
 is known when the order is placed: the courier, the order, the distance and the conditions on the road.
 It compares four machine learning models against a simple baseline and also gives a calibrated
 uncertainty range (for example "25 ± 6 minutes") for each prediction.
-
-This is a machine learning project only: a notebook and a training script. There is no web app or
-user interface.
 
 ## Dataset
 
@@ -46,7 +41,7 @@ Exact versions are in `requirements.txt`.
    encoding for the other categories (21 features in total), then `StandardScaler` fit on the training set.
 6. **Models:** a mean baseline plus 4 models (below). Random Forest and XGBoost are tuned with
    `RandomizedSearchCV` (3-fold cross-validation on the training set only).
-7. **Evaluation:** MAE, RMSE and R² on the test set, which is used only once at the end.
+7. **Evaluation:** RMSE and R² on the test set, which is used only once at the end.
 
 ## Models used
 
@@ -71,7 +66,7 @@ A baseline plus **4 models**:
 | XGBoost (tuned) | 0.829 | 3.12 | 3.91 |
 
 - **R²** = share of the variation in delivery time the model explains (1.0 is perfect).
-- **MAE** = average error in minutes. **RMSE** = like MAE but punishes big mistakes more.
+- **RMSE** = like MAE but punishes big mistakes more.
 
 ### R² of the 4 models
 
